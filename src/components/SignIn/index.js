@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+
 
 const SignInPage = () => (
   <div>
@@ -55,27 +56,34 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      
+      
+      <Form inline onSubmit={this.onSubmit}>
+          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+          <Label for="exampleEmail" className="mr-sm-2">Email</Label>
+        <Input
           name="email"
           value={email}
           onChange={this.onChange}
-          type="text"
+          type="email"
           placeholder="Email Address"
         />
-        <input
+         </FormGroup>
+         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+         <Label for="examplePassword" className="mr-sm-2">Password</Label>
+        <Input
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+        </FormGroup>
+        
+        <Button color="danger" disabled={isInvalid} type="submit">Sign In</Button>
 
         {error && <p>{error.message}</p>}
-      </form>
+      </Form>
     );
   }
 }

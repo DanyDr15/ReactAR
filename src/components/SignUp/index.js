@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
@@ -74,41 +74,57 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <Form onSubmit={this.onSubmit}>
+        <FormGroup>
+        <Label for="text">Usuario</Label>
+        <Input
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
         />
-        <input
+        </FormGroup>
+
+        <FormGroup>
+        <Label for="exampleEmail">Email</Label>
+        <Input
           name="email"
           value={email}
           onChange={this.onChange}
-          type="text"
+          type="email"
           placeholder="Email Address"
         />
-        <input
+
+        </FormGroup>
+
+        <FormGroup>
+        <Label for="examplePassword">Contraseña</Label>
+        <Input
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
-        <input
+        </FormGroup>
+
+        <FormGroup>
+        <Label for="Password">Confitmar contraseña</Label>
+        <Input
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        </FormGroup>
+        <Button disabled={isInvalid} type="submit">
           Registrarse
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
-      </form>
+      </Form>
     );
   }
 }

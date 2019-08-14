@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { Button } from 'reactstrap';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
@@ -17,23 +17,23 @@ const Navigation = () => (
 );
 
 const NavigationAuth = () => (
-  <ul>
+  <div>
+    <Button outline color="primary">
+      <Link to={ROUTES.LANDING}>Realidad Aumentada</Link>
+      </Button>{' '}
+      <Button outline color="secondary">
+      <Link to={ROUTES.HOME}>Inicio</Link>
+      </Button>{' '}
     <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link to={ROUTES.ACCOUNT}>Cuenta</Link>
     </li>
     <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ADMIN}>Admin</Link>
+      <Link to={ROUTES.ADMIN}>Administrador</Link>
     </li>
     <li>
       <SignOutButton />
     </li>
-  </ul>
+ </div>
 );
 
 const NavigationNonAuth = () => (
