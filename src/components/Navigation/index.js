@@ -21,15 +21,23 @@ const NavigationAuth = () => (
     <Button outline color="primary">
       <Link to={ROUTES.LANDING}>Realidad Aumentada</Link>
       </Button>{' '}
+
+      <Button outline color="primary">
+      <Link to={ROUTES.AR}>Realidad Aument</Link>
+      </Button>{' '}
+
       <Button outline color="secondary">
       <Link to={ROUTES.HOME}>Inicio</Link>
       </Button>{' '}
-    <li>
+
+   <Button outline color="primary">
       <Link to={ROUTES.ACCOUNT}>Cuenta</Link>
-    </li>
-    <li>
+      </Button>{' '}
+
+    <Button outline color="secondary">
       <Link to={ROUTES.ADMIN}>Administrador</Link>
-    </li>
+      </Button>{' '}
+
     <li>
       <SignOutButton />
     </li>

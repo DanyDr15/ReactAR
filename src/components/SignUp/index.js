@@ -110,7 +110,7 @@ class SignUpFormBase extends Component {
         </FormGroup>
 
         <FormGroup>
-        <Label for="Password">Confitmar contraseña</Label>
+        <Label for="Password">Confirmar contraseña</Label>
         <Input
           name="passwordTwo"
           value={passwordTwo}
