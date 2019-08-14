@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import {
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavItem,
+ } from 'reactstrap';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
@@ -18,41 +23,46 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
   <div>
-    <Button outline color="primary">
-      <Link to={ROUTES.LANDING}>Realidad Aumentada</Link>
-      </Button>{' '}
+     <Nav pills>
+        <NavItem>
+          <Link to={ROUTES.LANDING}>Realidad Aumentada</Link>
+        </NavItem>
 
-      <Button outline color="primary">
+        <NavItem>
       <Link to={ROUTES.AR}>Realidad Aument</Link>
-      </Button>{' '}
+        </NavItem>
 
-      <Button outline color="secondary">
+        <NavItem>
       <Link to={ROUTES.HOME}>Inicio</Link>
-      </Button>{' '}
+      </NavItem>
 
-   <Button outline color="primary">
+      <NavItem>
       <Link to={ROUTES.ACCOUNT}>Cuenta</Link>
-      </Button>{' '}
+      </NavItem>
 
-    <Button outline color="secondary">
+      <NavItem>
       <Link to={ROUTES.ADMIN}>Administrador</Link>
-      </Button>{' '}
+      </NavItem>
 
-    <li>
+      <NavItem>
       <SignOutButton />
-    </li>
+      </NavItem>
+    </Nav>
  </div>
 );
 
 const NavigationNonAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
-  </ul>
+  <div>
+    <Navbar color="light" light expand="md">
+      <NavbarBrand href="/">AR</NavbarBrand>
+            <Nav className="ml-auto" navbar>
+           
+           <NavItem>
+              <Link to={ROUTES.SIGN_IN}> Iniciar Sesion</Link>
+            </NavItem>
+           </Nav>
+    </Navbar>
+    </div>
 );
 
 export default Navigation;
