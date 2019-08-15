@@ -86,6 +86,7 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
+      <div>
       <Form onSubmit={this.onSubmit}>
         <FormGroup>
         <Label for="text">Usuario</Label>
@@ -149,12 +150,13 @@ class SignUpFormBase extends Component {
 
         {error && <p>{error.message}</p>}
       </Form>
+      </div>
     );
   }
 }
 
 const SignUpLink = () => (
-  <p>
+  <p align="center">
     
 ¿No tienes una cuenta? <Link to={ROUTES.SIGN_UP}>Registrarse</Link>
   </p>

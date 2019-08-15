@@ -11,7 +11,6 @@ const config = {
   messagingSenderId: "764037073534",
   appId: "1:764037073534:web:b0f5ac6cc2423cc9"
 };
-
 class Firebase {
   constructor() {
     app.initializeApp(config);
@@ -35,35 +34,7 @@ class Firebase {
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
 
-    onAuthUserListener = (next, fallback) =>
-    this.auth.onAuthStateChanged(authUser => {
-      if (authUser) {
-        this.user(authUser.uid)
-          .once('value')
-          .then(snapshot => {
-            const dbUser = snapshot.val();
-
-            // default empty roles
-            if (!dbUser.roles) {
-              dbUser.roles = {};
-            }
-
-            // merge auth and db user
-            authUser = {
-              uid: authUser.uid,
-              email: authUser.email,
-              ...dbUser,
-            };
-
-            next(authUser);
-          });
-      } else {
-        fallback();
-      }
-    });
-
-
-     // *** User API ***
+  // *** User API ***
 
   user = uid => this.db.ref(`users/${uid}`);
 

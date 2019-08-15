@@ -8,10 +8,13 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 
+
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h1 align="center"> LOGIN</h1><br></br>
+    <br></br>
     <SignInForm />
+    <br></br>
     <PasswordForgetLink />
     <SignUpLink />
   </div>
@@ -58,7 +61,7 @@ class SignInFormBase extends Component {
     return (
       
       
-      <Form inline onSubmit={this.onSubmit}>
+      <Form inline className="justify-content-center"  onSubmit={this.onSubmit}>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Label for="exampleEmail" className="mr-sm-2">Email</Label>
         <Input

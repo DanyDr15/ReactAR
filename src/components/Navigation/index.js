@@ -23,7 +23,7 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
   <div>
-     <Nav pills>
+     <Nav  bg="dark" pills className="justify-content-center" >
         <NavItem>
           <Link to={ROUTES.LANDING}>Realidad Aumentada</Link>
         </NavItem>
