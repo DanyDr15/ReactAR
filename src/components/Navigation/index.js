@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem} from 'reactstrap';
+import { Button, ButtonGroup } from 'reactstrap';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
@@ -31,33 +32,35 @@ const NavigationAuth = () => (
     <Navbar color="faded" light>
     <NavbarBrand href="/" className="mr-auto">Menu</NavbarBrand>
       
-              <Nav navbar>
-                  <NavItem>
-                  <NavLink href="/">Portada</NavLink>
-                  </NavItem>
+    <ButtonGroup>
+               
+                 <Button outline color="info">
+                <Link to={ROUTES.LANDING}>Marcadores</Link>
+                  </Button>
+               
 
-                  <NavItem>
-                <Link to={ROUTES.AR}>Realidad Aument</Link>
-                  </NavItem>
+                  <Button outline color="info">
+                <Link to={ROUTES.AR}>Realidad Aumentada</Link>
+                  </Button>
 
-                  <NavItem>
+                  <Button outline color="info">
                 
-                <NavLink href="/home">Inicio</NavLink>
-                </NavItem>
+                  <Link to={ROUTES.HOME}>Inicio</Link>
+                </Button>
 
-                <NavItem>
+                <Button outline color="info">
                 <Link to={ROUTES.ACCOUNT}>Cuenta</Link>
-                </NavItem>
+                </Button>
 
-                <NavItem>
-                <Link to={ROUTES.ADMIN}>Administrador</Link>
-                </NavItem>
+                <Button  outline color="info">
+                <Link to={ROUTES.ADMIN} color="dark">Administrador</Link>
+                </Button>
                 
 
                 <NavItem>
                 <SignOutButton />
                 </NavItem>
-            </Nav>
+                </ButtonGroup>
         
       </Navbar>
  </div>
@@ -70,7 +73,7 @@ const NavigationNonAuth = () => (
             <Nav className="ml-auto" navbar>
            
            <NavItem>
-              <Link to={ROUTES.SIGN_IN}> Iniciar Sesion</Link>
+           <Button color="warning"> <Link to={ROUTES.SIGN_IN}> Iniciar Sesion</Link></Button>
             </NavItem>
            </Nav>
     </Navbar>
